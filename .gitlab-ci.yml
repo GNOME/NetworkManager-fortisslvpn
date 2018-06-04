@@ -18,6 +18,7 @@
       libgudev1-devel
       libnotify-devel
       libsecret-devel
+      libnma-devel
       NetworkManager-libnm-devel
       pkgconfig
       /usr/bin/autopoint
@@ -53,54 +54,6 @@
     - fedora28_dist
   variables:
     GIT_STRATEGY: none
-
-.fedora_meson_minimal: &fedora_meson_minimal
-  <<: *fedora_minimal
-  <<: *dist
-  script:
-    - tar xJf network-manager-applet-*.tar.xz
-    - dnf -y install meson
-    - meson
-      -Dlibnm_gtk=false
-      -Dwwan=false
-      -Dselinux=false
-      -Dteam=false
-      -Dgcr=false
-      -Diso_codes=false
-      -Dld_gc=false
-      -Dgtk_doc=false
-      -Dintrospection=false
-      -Dappindicator=no
-      -Dmore_asserts=no
-      network-manager-applet-*/ build
-    - ninja -v -C build
-    - ninja -v -C build test
-    - ninja -v -C build install
-    - ninja -v -C build uninstall
-
-.fedora_meson_full: &fedora_meson_full
-  <<: *fedora_full
-  <<: *dist
-  script:
-    - dnf -y install meson
-    - tar xJf network-manager-applet-*.tar.xz
-    - meson
-      -Dlibnm_gtk=false
-      -Dwwan=true
-      -Dselinux=true
-      -Dteam=true
-      -Dgcr=true
-      -Diso_codes=true
-      -Dld_gc=true
-      -Dgtk_doc=true
-      -Dintrospection=true
-      -Dappindicator=no
-      -Dmore_asserts=yes
-      network-manager-applet-*/ build
-    - ninja -v -C build
-    - ninja -v -C build test
-    - ninja -v -C build install
-    - ninja -v -C build uninstall
 
 .fedora_autotools_minimal: &fedora_autotools_minimal
   <<: *fedora_minimal
@@ -169,14 +122,6 @@ fedora28_dist:
   artifacts:
     paths:
       - "*.xz"
-
-fedora_meson_minimal:
-  <<: *fedora_meson_minimal
-  image: fedora:latest
-
-fedora_meson_full:
-  <<: *fedora_meson_full
-  image: fedora:latest
 
 fedora_autotools_minimal:
   <<: *fedora_autotools_minimal
