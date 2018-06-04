@@ -2,52 +2,26 @@
 # python -c 'import sys, yaml; yaml.dump (yaml.load (sys.stdin), sys.stdout)' <.gitlab-ci.yml
 
 # If things don't seem to work, this can help:
-# https://gitlab.gnome.org/GNOME/network-manager-applet/-/ci/lint
+# https://gitlab.gnome.org/GNOME/NetworkManager-fortisslvpn/-/ci/lint
 
-.fedora_minimal: &fedora_minimal
+.fedora_deps: &fedora_deps
   before_script:
     - dnf -y install
       file
       findutils
       gcc
-      desktop-file-utils
       gettext-devel
       glib2-devel
       gtk3-devel
       intltool
-      libgudev1-devel
-      libnotify-devel
+      libtool
       libsecret-devel
       libnma-devel
       NetworkManager-libnm-devel
       pkgconfig
-      /usr/bin/autopoint
-
-.fedora_full: &fedora_full
-  before_script:
-    - dnf -y install
-      file
-      findutils
-      gcc
-      desktop-file-utils
-      gettext-devel
-      glib2-devel
-      gtk3-devel
-      intltool
-      libgudev1-devel
-      libnotify-devel
-      libsecret-devel
-      NetworkManager-libnm-devel
-      pkgconfig
-      /usr/bin/autopoint
-      gcr-devel
-      gobject-introspection-devel redhat-rpm-config
       gtk-doc
-      iso-codes-devel
-      jansson-devel
-      ModemManager-glib-devel
-      libselinux-devel
 
+# Disable fetching Git, run after the tarball is rolled
 .dist: &dist
   stage: test
   dependencies:
@@ -55,65 +29,29 @@
   variables:
     GIT_STRATEGY: none
 
-.fedora_autotools_minimal: &fedora_autotools_minimal
-  <<: *fedora_minimal
+.fedora_from_dist: &fedora_from_dist
+  <<: *fedora_deps
   <<: *dist
   script:
     - dnf -y install make
-    - tar xJf network-manager-applet-*.tar.xz
-    - cd network-manager-applet-*/
+    - tar xJf NetworkManager-fortisslvpn-*.tar.xz
+    - cd NetworkManager-fortisslvpn-*/
     - ./configure
       --disable-silent-rules
-      --with-more-asserts=no
-      --without-libnm-gtk
-      --disable-nls
-      --disable-iso-codes
-      --disable-gtk-doc
-      --disable-introspection
-      --disable-schemas-compile
-      --disable-more-warnings
-      --without-appindicator
-      --without-wwan
-      --without-selinux
-      --without-team
-      --without-gcr
+      --without-libnm-glib
     - make -j
     - make -j check
     - make -j install
     - make -j uninstall
 
-.fedora_autotools_full: &fedora_autotools_full
-  <<: *fedora_full
-  <<: *dist
-  script:
-    - dnf -y install make
-    - tar xJf network-manager-applet-*.tar.xz
-    - cd network-manager-applet-*/
-    - ./configure
-      --disable-silent-rules
-      --with-more-asserts=yes
-      --without-libnm-gtk
-      --enable-nls
-      --enable-iso-codes
-      --enable-gtk-doc
-      --enable-introspection
-      --enable-schemas-compile
-      --enable-more-warnings
-      --with-wwan
-      --with-selinux
-      --with-team
-      --with-gcr
-    - make -j
-    - make -j check
-    - make -j install
-    - make -j uninstall
-
+# Roll the distribution tarball
 fedora28_dist:
-  <<: *fedora_full
+  <<: *fedora_deps
   image: fedora:28
   stage: build
   script:
     - dnf -y install
+      /usr/bin/autopoint
       autoconf automake make
       NetworkManager-devel
       NetworkManager-glib-devel
@@ -123,10 +61,6 @@ fedora28_dist:
     paths:
       - "*.xz"
 
-fedora_autotools_minimal:
-  <<: *fedora_autotools_minimal
-  image: fedora:latest
-
-fedora_autotools_full:
-  <<: *fedora_autotools_full
+fedora_from_dist:
+  <<: *fedora_from_dist
   image: fedora:latest
