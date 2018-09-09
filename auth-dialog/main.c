@@ -180,6 +180,7 @@ get_secrets (const char *vpn_uuid,
 
 
 	dialog = (NMAVpnPasswordDialog *) nma_vpn_password_dialog_new (_("Authenticate VPN"), prompt, NULL);
+	nma_vpn_password_dialog_set_show_password (dialog, TRUE);
 
 	/* The one-time-password. */
 	if (otp_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED) {
