@@ -101,6 +101,7 @@ static const ValidProperty valid_properties[] = {
 	{ NM_FORTISSLVPN_KEY_TRUSTED_CERT,      G_TYPE_STRING, FALSE },
 	{ NM_FORTISSLVPN_KEY_CERT,              G_TYPE_STRING, FALSE },
 	{ NM_FORTISSLVPN_KEY_KEY,               G_TYPE_STRING, FALSE },
+	{ NM_FORTISSLVPN_KEY_REALM,             G_TYPE_STRING, FALSE },
 	{ NM_FORTISSLVPN_KEY_PASSWORD"-flags",  G_TYPE_UINT,   FALSE },
 	{ NM_FORTISSLVPN_KEY_OTP"-flags",       G_TYPE_UINT,   FALSE },
 	{ NULL }
@@ -477,6 +478,12 @@ run_openfortivpn (NMFortisslvpnPlugin *plugin, NMSettingVpn *s_vpn, GError **err
 	g_ptr_array_add (argv, (gpointer) g_strdup ("--pppd-plugin"));
 	g_ptr_array_add (argv, (gpointer) g_strdup (NM_FORTISSLVPN_PPPD_PLUGIN));
 
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_FORTISSLVPN_KEY_REALM);
+        if (value) {
+		g_ptr_array_add (argv, (gpointer) g_strdup ("--realm"));
+		g_ptr_array_add (argv, (gpointer) g_strdup (value));
+	}
+        
 	g_ptr_array_add (argv, NULL);
 
 	_LOGD ("start %s", (str_tmp = g_strjoinv (" ", (char **) argv->pdata)));
