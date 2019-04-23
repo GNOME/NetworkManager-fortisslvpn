@@ -239,7 +239,7 @@ get_ip4_routes (in_addr_t ouraddr)
 
 	g_variant_builder_init (&builder, G_VARIANT_TYPE ("aau"));
 
-	for (i = 0; i < 100; i++) {
+	for (i = 0; ; i++) {
 		GVariantBuilder array;
 		gchar *var;
 		const gchar *str;
@@ -283,7 +283,10 @@ get_ip4_routes (in_addr_t ouraddr)
 		g_variant_builder_add_value (&array, g_variant_new_uint32 (gateway));
 		g_variant_builder_add_value (&array, g_variant_new_uint32 (metric));
 		g_variant_builder_add_value (&builder, g_variant_builder_end (&array));
-	}
+
+    if (i == G_MAXUINT) /* prevent integer overflow */
+      break;
+  }
 
 	value = g_variant_builder_end (&builder);
 	if (i > 0)
