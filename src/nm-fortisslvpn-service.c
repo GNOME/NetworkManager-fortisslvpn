@@ -400,7 +400,9 @@ get_credentials (NMSettingVpn *s_vpn,
 														 NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
 														 _("Missing VPN username."));
 				return FALSE;
-			}
+			} else {
+        *username = "";
+      }
 		}
 	}
 
@@ -412,7 +414,9 @@ get_credentials (NMSettingVpn *s_vpn,
 													 NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
 													 _("Missing or invalid VPN password."));
 			return FALSE;
-		}
+    } else {
+      *password = "";
+    }
 	}
 
 	*otp = nm_setting_vpn_get_secret (s_vpn, NM_FORTISSLVPN_KEY_OTP);
