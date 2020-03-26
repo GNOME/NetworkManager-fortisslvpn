@@ -34,11 +34,11 @@ typedef struct {
 
 static const ValidProperty valid_properties[] = {
 	{ NM_FORTISSLVPN_KEY_GATEWAY,           G_TYPE_STRING, TRUE },
-	{ NM_FORTISSLVPN_KEY_USER,              G_TYPE_STRING, TRUE },
+	{ NM_FORTISSLVPN_KEY_USER,              G_TYPE_STRING, FALSE },
 	{ NM_FORTISSLVPN_KEY_CA,                G_TYPE_STRING, FALSE },
 	{ NM_FORTISSLVPN_KEY_TRUSTED_CERT,      G_TYPE_STRING, FALSE },
 	{ NM_FORTISSLVPN_KEY_CERT,              G_TYPE_STRING, FALSE },
-	{ NM_FORTISSLVPN_KEY_KEY,               G_TYPE_STRING, FALSE },
+	{ NM_FORTISSLVPN_KEY_KEY"-flags",       G_TYPE_UINT, FALSE },
 	{ NM_FORTISSLVPN_KEY_REALM,             G_TYPE_STRING, FALSE },
 	{ NM_FORTISSLVPN_KEY_PASSWORD"-flags",  G_TYPE_UINT,   FALSE },
 	{ NM_FORTISSLVPN_KEY_OTP"-flags",       G_TYPE_UINT,   FALSE },
@@ -48,6 +48,7 @@ static const ValidProperty valid_properties[] = {
 static const ValidProperty valid_secrets[] = {
 	{ NM_FORTISSLVPN_KEY_PASSWORD,          G_TYPE_STRING, TRUE },
 	{ NM_FORTISSLVPN_KEY_OTP,               G_TYPE_STRING, TRUE },
+	{ NM_FORTISSLVPN_KEY_KEY,               G_TYPE_STRING, TRUE },
 	{ NULL }
 };
 

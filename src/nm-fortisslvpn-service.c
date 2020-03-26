@@ -385,26 +385,34 @@ get_credentials (NMSettingVpn *s_vpn,
                  const char **otp,
                  GError **error)
 {
+  const char *cert;
+
+  cert = nm_setting_vpn_get_data_item (s_vpn, NM_FORTISSLVPN_KEY_CERT);
+
 	/* Username; try SSLVPN specific username first, then generic username */
 	*username = nm_setting_vpn_get_data_item (s_vpn, NM_FORTISSLVPN_KEY_USER);
 	if (!*username || !strlen (*username)) {
 		*username = nm_setting_vpn_get_user_name (s_vpn);
 		if (!*username || !strlen (*username)) {
-			g_set_error_literal (error,
-			                     NM_VPN_PLUGIN_ERROR,
-			                     NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
-			                     _("Missing VPN username."));
-			return FALSE;
+      if ((!*cert || !strlen(*cert))) {
+        g_set_error_literal (error,
+                             NM_VPN_PLUGIN_ERROR,
+                             NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+                             _("Missing VPN username."));
+        return FALSE;
+      }
 		}
 	}
 
 	*password = nm_setting_vpn_get_secret (s_vpn, NM_FORTISSLVPN_KEY_PASSWORD);
 	if (!*password || !strlen (*password)) {
-		g_set_error_literal (error,
-		                     NM_VPN_PLUGIN_ERROR,
-		                     NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
-		                     _("Missing or invalid VPN password."));
-		return FALSE;
+    if ((!*cert || !strlen(*cert))) {
+      g_set_error_literal (error,
+                           NM_VPN_PLUGIN_ERROR,
+                           NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+                           _("Missing or invalid VPN password."));
+      return FALSE;
+    }
 	}
 
 	*otp = nm_setting_vpn_get_secret (s_vpn, NM_FORTISSLVPN_KEY_OTP);
