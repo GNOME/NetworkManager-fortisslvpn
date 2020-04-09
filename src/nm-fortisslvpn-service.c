@@ -229,6 +229,7 @@ run_openfortivpn (NMFortisslvpnPlugin *plugin, NMSettingVpn *s_vpn, GError **err
 
 	g_ptr_array_add (argv, (gpointer) g_strdup ("--no-routes"));
 	g_ptr_array_add (argv, (gpointer) g_strdup ("--no-dns"));
+	g_ptr_array_add (argv, (gpointer) g_strdup ("--pppd-use-peerdns=1"));
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_FORTISSLVPN_KEY_GATEWAY);
 	g_ptr_array_add (argv, (gpointer) g_strdup (value));
