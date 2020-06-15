@@ -38,5 +38,6 @@
 #define NM_FORTISSLVPN_KEY_KEY               "key"
 #define NM_FORTISSLVPN_KEY_TRUSTED_CERT      "trusted-cert"
 #define NM_FORTISSLVPN_KEY_REALM             "realm"
+#define NM_FORTISSLVPN_KEY_MINTLS            "min-tls"
 
 #endif /* __NM_SERVICE_DEFINES_H__ */
