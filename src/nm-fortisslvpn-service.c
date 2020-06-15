@@ -272,6 +272,12 @@ run_openfortivpn (NMFortisslvpnPlugin *plugin, NMSettingVpn *s_vpn, GError **err
 		g_ptr_array_add (argv, (gpointer) g_strdup (value));
 	}
 
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_FORTISSLVPN_KEY_MINTLS);
+	if (value) {
+		g_ptr_array_add (argv, (gpointer) g_strdup ("--min-tls"));
+		g_ptr_array_add (argv, (gpointer) g_strdup (value));
+	}
+
 	g_ptr_array_add (argv, NULL);
 
 	_LOGD ("start %s", (str_tmp = g_strjoinv (" ", (char **) argv->pdata)));
