@@ -32,6 +32,7 @@ typedef struct _FortisslvpnEditorPluginClass FortisslvpnEditorPluginClass;
 
 struct _FortisslvpnEditorPlugin {
 	GObject parent;
+	char *module_path;
 };
 
 struct _FortisslvpnEditorPluginClass {
