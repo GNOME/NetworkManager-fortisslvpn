@@ -16,7 +16,7 @@
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301 USA.
  *
- * Copyright 2016 Red Hat, Inc.
+ * Copyright 2016,2024 Red Hat, Inc.
  */
 
 #ifndef __NM_VPN_PLUGIN_UTILS_H__
@@ -30,7 +30,10 @@ typedef NMVpnEditor *(NMVpnPluginUtilsEditorFactory) (gpointer factory,
                                                       gpointer user_data,
                                                       GError **error);
 
-NMVpnEditor *nm_vpn_plugin_utils_load_editor (const char *module_name,
+char *
+nm_vpn_plugin_utils_get_editor_module_path (const char *module_name, GError **error);
+
+NMVpnEditor *nm_vpn_plugin_utils_load_editor (const char *module_path,
                                               const char *factory_name,
                                               NMVpnPluginUtilsEditorFactory editor_factory,
                                               NMVpnEditorPlugin *editor_plugin,
