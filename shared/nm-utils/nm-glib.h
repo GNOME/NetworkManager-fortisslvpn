@@ -384,23 +384,25 @@ _nm_g_hash_table_get_keys_as_array (GHashTable *hash_table,
                                __VA_ARGS__)
 #endif
 
-#if !GLIB_CHECK_VERSION(2, 44, 0)
-static inline gpointer
-g_steal_pointer (gpointer pp)
-{
-	gpointer *ptr = (gpointer *) pp;
-	gpointer ref;
+#define _NM_ENSURE_POINTER(value)                                                 \
+    do {                                                                          \
+        _nm_unused const void *const _unused_for_type_check = 0 ? (value) : NULL; \
+    } while (0)
 
-	ref = *ptr;
-	*ptr = NULL;
-
-	return ref;
-}
-
-/* type safety */
-#define g_steal_pointer(pp) \
-  (0 ? (*(pp)) : (g_steal_pointer) (pp))
+#ifdef g_steal_pointer
+#undef g_steal_pointer
 #endif
+
+#define g_steal_pointer(pp)              \
+    ({                                   \
+        typeof(*(pp)) *const _pp = (pp); \
+        typeof(*_pp)         _p  = *_pp; \
+                                         \
+        _NM_ENSURE_POINTER(_p);          \
+                                         \
+        *_pp = NULL;                     \
+        _p;                              \
+    })
 
 
 static inline gboolean
