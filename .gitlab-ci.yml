@@ -35,6 +35,9 @@
   script:
     - tar xJf NetworkManager-fortisslvpn-*.tar.xz
     - cd NetworkManager-fortisslvpn-*/
+    # Sometimes the CI builder clocks are skewed.
+    # Make sure the dst files are not from future.
+    - find |xargs touch
     - ./configure $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
     - make -j
