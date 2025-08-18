@@ -278,6 +278,7 @@ main (int argc, char *argv[])
 			{ "hint", 't', 0, G_OPTION_ARG_STRING_ARRAY, &hints, "Hints from the VPN plugin", NULL},
 			{ NULL }
 		};
+	GError *error = NULL;
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, NULL);
@@ -287,7 +288,11 @@ main (int argc, char *argv[])
 	context = g_option_context_new ("- fortisslvpn auth dialog");
 	g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
 	g_option_context_add_group (context, gtk_get_option_group (FALSE));
-	g_option_context_parse (context, &argc, &argv, NULL);
+	if (!g_option_context_parse (context, &argc, &argv, &error)) {
+		fprintf (stderr, "Error parsing options: %s\n", error->message);
+		g_error_free (error);
+		return 1;
+	}
 	g_option_context_free (context);
 
 	if (!vpn_uuid || !vpn_service || !vpn_name) {
