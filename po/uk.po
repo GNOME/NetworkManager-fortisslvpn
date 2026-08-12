@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the NetworkManager package.
 #
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2007.
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2022.
+# SPDX-FileCopyrightText: 2020, 2022, 2026 Yuri Chornoivan <yurchor@ukr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager pptp\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-fortisslvp"
-"n/issues\n"
-"POT-Creation-Date: 2022-03-13 12:18+0000\n"
-"PO-Revision-Date: 2022-03-14 11:19+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-fortisslv"
+"pn/issues\n"
+"POT-Creation-Date: 2025-02-28 12:04+0000\n"
+"PO-Revision-Date: 2026-08-12 20:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -19,28 +19,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
 "=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:9
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:10
 msgid "Fortinet SSLVPN client"
 msgstr "Клієнт SSLVPN Fortinet"
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:10
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:11
 msgid "Client for Fortinet SSLVPN virtual private networks"
 msgstr "Клієнт для віртуальних приватних мереж SSLVPN Fortinet"
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:24
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:14
+msgid "network"
+msgstr "мережа"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:15
+msgid "manager"
+msgstr "керування"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:16
+#| msgid "The NetworkManager Developers"
+msgid "NetworkManager"
+msgstr "NetworkManager"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:17
+msgid "connection"
+msgstr "з'єднання"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:18
+msgid "VPN"
+msgstr "VPN"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:19
+#| msgid "Fortinet SSLVPN"
+msgid "Fortinet"
+msgstr "Fortinet"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:20
+msgid "openfortivpn"
+msgstr "openfortivpn"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:21
+msgid "SSLVPN"
+msgstr "SSLVPN"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:25
 msgid ""
 "Support for configuring Fortinet SSLVPN virtual private network connections."
 msgstr ""
 "Підтримка налаштовування з'єднань із віртуальними приватними мережами SSLVPN "
 "Fortinet."
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:32
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:33
 msgid "The advanced options dialog"
 msgstr "Вікно додаткових параметрів"
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:41
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:42
 msgid "The NetworkManager Developers"
 msgstr "Розробники NetworkManager"
 
@@ -70,11 +104,11 @@ msgstr "Ключ"
 msgid "_Token:"
 msgstr "_Ключ:"
 
-#: properties/nm-fortisslvpn-editor-plugin.c:38
+#: properties/nm-fortisslvpn-editor-plugin.c:34
 msgid "Fortinet SSLVPN"
 msgstr "SSLVPN Fortinet"
 
-#: properties/nm-fortisslvpn-editor-plugin.c:39
+#: properties/nm-fortisslvpn-editor-plugin.c:35
 msgid "Compatible with Fortinet SSLVPN servers."
 msgstr "Сумісні із серверами SSLVPN Fortinet."
 
@@ -143,7 +177,8 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:286
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr "«%s::%s» не є коректною назвою властивості; «%s» не є підтипом GObject"
+msgstr ""
+"«%s::%s» не є коректною назвою властивості; «%s» не є підтипом GObject"
 
 #: shared/nm-utils/nm-shared-utils.c:295
 #, c-format
