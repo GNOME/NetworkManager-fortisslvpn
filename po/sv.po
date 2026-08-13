@@ -1,17 +1,17 @@
 # Swedish messages for NetworkManager fortisslvpn.
-# Copyright © 2004-2022 Free Software Foundation, Inc.
+# Copyright © 2004-2026 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004, 2005, 2006.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2011, 2012.
 # Josef Andersson <josef.andersson@fripost.org>, 2014, 2017.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2016, 2017, 2020, 2021, 2022.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2016, 2017, 2020, 2021, 2022, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-fortisslvpn\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-"
 "fortisslvpn/issues\n"
-"POT-Creation-Date: 2022-03-13 12:18+0000\n"
-"PO-Revision-Date: 2022-03-13 15:06+0100\n"
+"POT-Creation-Date: 2025-02-28 12:04+0000\n"
+"PO-Revision-Date: 2026-08-13 21:33+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -19,28 +19,60 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.9\n"
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:9
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:10
 msgid "Fortinet SSLVPN client"
 msgstr "Fortinet SSLVPN-klient"
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:10
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:11
 msgid "Client for Fortinet SSLVPN virtual private networks"
 msgstr "Klient för Fortinet SSLVPN virtuella privata nätverk"
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:24
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:14
+msgid "network"
+msgstr "nätverk"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:15
+msgid "manager"
+msgstr "hanterare"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:16
+msgid "NetworkManager"
+msgstr "Nätverkshanteraren"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:17
+msgid "connection"
+msgstr "anslutning"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:18
+msgid "VPN"
+msgstr "VPN"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:19
+msgid "Fortinet"
+msgstr "Fortinet"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:20
+msgid "openfortivpn"
+msgstr "openfortivpn"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:21
+msgid "SSLVPN"
+msgstr "SSLVPN"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:25
 msgid ""
 "Support for configuring Fortinet SSLVPN virtual private network connections."
 msgstr ""
 "Stöd för att konfigurera Fortinet SSLVPN virtuella privata "
 "nätverksanslutningar."
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:32
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:33
 msgid "The advanced options dialog"
 msgstr "Dialogen för avancerade alternativ"
 
-#: appdata/network-manager-fortisslvpn.metainfo.xml.in:41
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:42
 msgid "The NetworkManager Developers"
 msgstr "Utvecklarna av Nätverkshanteraren"
 
@@ -70,11 +102,11 @@ msgstr "Token"
 msgid "_Token:"
 msgstr "_Token:"
 
-#: properties/nm-fortisslvpn-editor-plugin.c:38
+#: properties/nm-fortisslvpn-editor-plugin.c:34
 msgid "Fortinet SSLVPN"
 msgstr "Fortinet SSLVPN"
 
-#: properties/nm-fortisslvpn-editor-plugin.c:39
+#: properties/nm-fortisslvpn-editor-plugin.c:35
 msgid "Compatible with Fortinet SSLVPN servers."
 msgstr "Kompatibel med Fortinet SSLVPN-servrar."
 
