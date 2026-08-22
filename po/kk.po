@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-"
 "fortisslvpn/issues\n"
 "POT-Creation-Date: 2025-02-28 12:04+0000\n"
-"PO-Revision-Date: 2026-03-14 12:39+0500\n"
+"PO-Revision-Date: 2026-08-22 08:49+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <Kazakh>\n"
 "Language: kk\n"
@@ -26,6 +26,40 @@ msgstr "Fortinet SSLVPN клиенті"
 msgid "Client for Fortinet SSLVPN virtual private networks"
 msgstr "Fortinet SSLVPN виртуалды жеке желілеріне арналған клиент"
 
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:14
+msgid "network"
+msgstr "желі"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:15
+msgid "manager"
+msgstr "басқарушы"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:16
+#| msgid "The NetworkManager Developers"
+msgid "NetworkManager"
+msgstr "NetworkManager"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:17
+msgid "connection"
+msgstr "қосылым"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:18
+msgid "VPN"
+msgstr "VPN"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:19
+#| msgid "Fortinet SSLVPN"
+msgid "Fortinet"
+msgstr "Fortinet"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:20
+msgid "openfortivpn"
+msgstr "openfortivpn"
+
+#: appdata/network-manager-fortisslvpn.metainfo.xml.in:21
+msgid "SSLVPN"
+msgstr "LVM"
+
 #: appdata/network-manager-fortisslvpn.metainfo.xml.in:25
 msgid ""
 "Support for configuring Fortinet SSLVPN virtual private network connections."
@@ -41,11 +75,13 @@ msgstr "NetworkManager әзірлеушілері"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
+#.
 #: auth-dialog/main.c:165
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
-"«%s» виртуалды жеке желісіне қол жеткізу үшін аутентификациядан өтуіңіз керек."
+"«%s» виртуалды жеке желісіне қол жеткізу үшін аутентификациядан өтуіңіз "
+"керек."
 
 #: auth-dialog/main.c:174 auth-dialog/main.c:198
 msgid "Authenticate VPN"
@@ -126,7 +162,8 @@ msgstr "«%s» объект класының «%s» қасиеті жазуға 
 
 #: shared/nm-utils/nm-shared-utils.c:278
 #, c-format
-msgid "construct property \"%s\" for object '%s' can't be set after construction"
+msgid ""
+"construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
 "«%s» құрастыру қасиетін «%s» объектісі үшін құрастырудан кейін орнату мүмкін "
 "емес"
@@ -144,8 +181,8 @@ msgstr "«%s» қасиетін («%s» түрі) «%s» түріндегі мә
 #: shared/nm-utils/nm-shared-utils.c:306
 #, c-format
 msgid ""
-"value \"%s\" of type '%s' is invalid or out of range for property '%s' of type "
-"'%s'"
+"value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
+"type '%s'"
 msgstr ""
 "«%s» мәні («%s» түрі) «%s» қасиеті («%s» түрі) үшін жарамсыз немесе ауқымнан "
 "тыс"
@@ -204,8 +241,8 @@ msgstr "Осы дана үшін қолданылатын D-Bus атауы"
 
 #: src/nm-fortisslvpn-service.c:743
 msgid ""
-"nm-fortisslvpn-service provides integrated SSLVPN capability (compatible with "
-"Fortinet) to NetworkManager."
+"nm-fortisslvpn-service provides integrated SSLVPN capability (compatible "
+"with Fortinet) to NetworkManager."
 msgstr ""
 "nm-fortisslvpn-service қызметі NetworkManager үшін біріктірілген SSLVPN "
 "мүмкіндігін (Fortinet-пен үйлесімді) ұсынады."
@@ -214,7 +251,8 @@ msgstr ""
 msgid "SSLVPN Advanced Options"
 msgstr "SSLVPN кеңейтілген опциялары"
 
-#: properties/nm-fortisslvpn-dialog.ui:50 properties/nm-fortisslvpn-dialog.ui:351
+#: properties/nm-fortisslvpn-dialog.ui:50
+#: properties/nm-fortisslvpn-dialog.ui:351
 msgid "Authentication"
 msgstr "Аутентификация"
 
@@ -222,7 +260,8 @@ msgstr "Аутентификация"
 msgid "_Realm"
 msgstr "_Аймақ"
 
-#: properties/nm-fortisslvpn-dialog.ui:81 properties/nm-fortisslvpn-dialog.ui:337
+#: properties/nm-fortisslvpn-dialog.ui:81
+#: properties/nm-fortisslvpn-dialog.ui:337
 msgid ""
 "SSLVPN server IP or name.\n"
 "config: the first parameter of fortisslvpn"
@@ -272,11 +311,12 @@ msgstr "Сұралған кезде SSLVPN-ге берілетін пароль.
 
 #: properties/nm-fortisslvpn-dialog.ui:282
 msgid ""
-"Set the name used for authenticating the local system to the peer to <name>.\n"
+"Set the name used for authenticating the local system to the peer to "
+"<name>.\n"
 "config: user <name>"
 msgstr ""
-"Жергілікті жүйені серіктеске аутентификациялау үшін қолданылатын атауды <name> "
-"етіп орнату.\n"
+"Жергілікті жүйені серіктеске аутентификациялау үшін қолданылатын атауды "
+"<name> етіп орнату.\n"
 "конфигурация: user <name>"
 
 #: properties/nm-fortisslvpn-dialog.ui:295
